@@ -1,0 +1,10 @@
+- name: "Install Minio"
+  hosts: minio-server
+  gather_facts: True
+  become: yes
+  become_user: root
+  any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
+  roles:
+    - { role: minio }
+  vars_files:
+    - minio-install-vars-example.yaml
